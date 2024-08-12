@@ -1,3 +1,1 @@
-ffvvfgfc
-hjb
-ebvtttdd
+print("hi")  # 顯示hi
