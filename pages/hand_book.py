@@ -1,7 +1,8 @@
 import streamlit as st
 
-st.markdown(
-    """
+with st.expander("class1 課程筆記"):
+    st.markdown(
+        """
 ### Python 基礎技巧筆記
 
 ---
@@ -332,4 +333,4 @@ st.markdown(
     - **功能**: 使用 `st.markdown` 生成帶有格式的文字內容，支持標題、列表、程式碼區塊等。
 
 """
-)
+    )
