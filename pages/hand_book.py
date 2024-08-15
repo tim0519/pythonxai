@@ -9,6 +9,8 @@ for f in files:  # 逐一檢查所有檔案，檢查是否為 .md 檔案
     if f.endswith(".md"):  # 如果是 .md 檔案就加入到清單中
         files_name.append(f)  # 將檔案名稱加入清單
 
+files_name.sort()  # 排序
+
 for f in files_name:  # 逐一檢查清單中的檔案
     # 用with open()讀取檔案內容並存到file變數裡面，模式為r，編碼為utf-8
     # 這樣可以不用擔心檔案讀去後忘記關閉的問題
