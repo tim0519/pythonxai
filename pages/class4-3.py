@@ -19,10 +19,11 @@ for image_file in image_files:  # 顯示所有圖片
             "image": f"{image_folder}/{image_file}",
         }  # 就建立一個product_name的session_state
 st.title("購物平台")
-cols = st.columns(3)
+col_number = st.number_input("請輸入列數", min_value=1, max_value=10, value=3)
+cols = st.columns(col_number)
 i = 0
 for product_name, details in st.session_state.products.items():
-    with cols[i % 3]:  # 取餘數來判斷放在哪一行
+    with cols[i % len(cols)]:  # 取餘數來判斷放在哪一行
         st.image(details["image"], use_column_width=True)
         st.markdown(f"###{product_name}")
         st.markdown(f"價格:{details['價格']}")
