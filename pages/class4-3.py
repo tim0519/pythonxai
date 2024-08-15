@@ -25,7 +25,7 @@ i = 0
 for product_name, details in st.session_state.products.items():
     with cols[i % len(cols)]:  # 取餘數來判斷放在哪一行
         st.image(details["image"], use_column_width=True)
-        st.markdown(f"###{product_name}")
+        st.markdown(f"### {product_name}")
         st.markdown(f"價格:{details['價格']}")
         st.markdown(f"庫存:{details['庫存']}")
 
@@ -38,3 +38,11 @@ for product_name, details in st.session_state.products.items():
             else:
                 st.error(f"{product_name}庫存不足！")
     i += 1
+
+# 新增商品庫存區塊
+st.title("新增商品庫存")
+product_names = list(st.session_state.products.keys())
+# 選擇要補貨的產品
+product_name = st.selectbox("請選擇要補貨的產品", product_names)
+# 輸入要補貨的數量
+quantity = st.number_input("請輸入要補貨的數量", min_value=1, max_value=10, value=1)
