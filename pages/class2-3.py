@@ -14,3 +14,12 @@ for i in range(2, 5):
 # -1指得是間距，可以是正數或負數
 for i in range(5, 0, -1):
     print(i)
+from utils import set_background  # 從utils.py引入set_background函數
+
+
+set_background("image/bg.png", 60, "left bottom")
+
+from utils import set_background  # 從utils.py引入set_background函數
+
+
+set_background("image/bg.png", 60, "left bottom")

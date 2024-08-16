@@ -60,3 +60,9 @@ def hello(name: str):
     """
 
     print(f"hello {name}!")
+
+
+from utils import set_background  # 從utils.py引入set_background函數
+
+
+set_background("image/bg.png", 60, "left bottom")
