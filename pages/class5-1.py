@@ -39,12 +39,15 @@ print("面積是", area)
 length = 5
 area = 100
 
+
 def calculate_square_area():
     global area
-    area = length**2  
+    area = length**2
+
 
 calculate_square_area()
 print("面積是", area)
+
 
 def hello(name: str):
     """
@@ -54,7 +57,6 @@ def hello(name: str):
     name: str - 姓名
 
     回傳None
+    """
 
     print(f"hello {name}!")
-
-
