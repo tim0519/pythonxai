@@ -1,5 +1,6 @@
 import base64
 import streamlit as st
+import os
 
 
 def encode_image(image_path):
@@ -54,3 +55,19 @@ def set_background(png_file, width=25, position="right bottom", opacity=1):
         % bin_str
     )
     st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
+def load_openai_api() -> str:
+    """
+    加載 OpenAI API 的 金鑰。
+    Returns:
+        str: OpenAI API 的 金鑰。
+    Raises:
+        RuntimeError: 如果找不到 OpenAI API 的 金鑰。
+    """
+
+    openai_api_key = os.environ.get("OPENAI_API_KEY")
+    if not openai_api_key:
+        st.error("找不到 OpenAI API 的 金鑰。請設置環境變數 OPENAI_API_KEY。")
+        st.stop()
+    return openai_api_key
