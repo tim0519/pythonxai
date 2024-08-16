@@ -42,7 +42,20 @@ for product_name, details in st.session_state.products.items():
 # 新增商品庫存區塊
 st.title("新增商品庫存")
 product_names = list(st.session_state.products.keys())
-# 選擇要補貨的產品
-product_name = st.selectbox("請選擇要補貨的產品", product_names)
-# 輸入要補貨的數量
-quantity = st.number_input("請輸入要補貨的數量", min_value=1, max_value=10, value=1)
+col1, col2 = st.columns(2)
+with col1:
+    # 選擇要補貨的產品
+    select_product = st.selectbox("請選擇要補貨的產品", product_names)
+with col2:
+    # 輸入要補貨的數量
+    quantity = st.number_input("請輸入要補貨的數量", min_value=1, max_value=10, value=1)
+
+if st.button("新增庫存"):
+    st.session_state.products[select_product]["庫存"] += quantity
+    st.success(f"新增{quantity}個{select_product}成功！")
+    time.sleep(1)
+    st.rerun()
+
+st.markdown("目前商品庫存")
+for product_name, details in st.session_state.products.items():
+    st.markdown(f"{product_name}: {details['庫存']}")
